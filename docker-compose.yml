@@ -1,0 +1,28 @@
+# Disclaimer: I don't recommend a fixed IP for containers in docker...
+
+version: '3.7'
+volumes:
+    db:
+    pgadmin:
+
+services:
+  db:
+    container_name: db
+    image: "postgres:13"
+    environment:
+      POSTGRES_DB: app
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "password"
+      PGDATA: "/data/postgres"
+    ports:
+      - "15432:5432"
+    networks:
+      example:
+        ipv4_address: 10.5.0.5
+networks:
+  example:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.5.0.0/16
+          gateway: 10.5.0.1

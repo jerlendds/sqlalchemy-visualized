@@ -1,0 +1,7 @@
+.venv/
+.idea/
+/models/one_to_many/__pycache__/
+/models/one_to_one/__pycache__/
+/models/many_to_one/__pycache__/
+/models/many_to_many/__pycache__/
+/models/__pycache__/
